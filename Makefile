@@ -124,7 +124,6 @@ UPROGS=\
 	$U/_kill\
 	$U/_ln\
 	$U/_ls\
-	$U/_find\
 	$U/_mkdir\
 	$U/_rm\
 	$U/_sh\
@@ -133,6 +132,7 @@ UPROGS=\
 	$U/_grind\
 	$U/_wc\
 	$U/_zombie\
+	$U/_find\
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)

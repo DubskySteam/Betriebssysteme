@@ -4,6 +4,6 @@
 
 int main(int argc, char *argv[])
 {
-	printf("find 1 >");
+  printf("find 2 >");
   exit(0);
 }
