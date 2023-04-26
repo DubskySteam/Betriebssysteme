@@ -75,8 +75,14 @@ runcmd(struct cmd *cmd)
     ecmd = (struct execcmd*)cmd;
     if(ecmd->argv[0] == 0)
       exit(1);
-    exec(ecmd->argv[0], ecmd->argv);
-    fprintf(2, "exec %s failed\n", ecmd->argv[0]);
+    char *path = ecmd->argv[0];
+    char *root_path = "/"; // set the root directory path
+    if(exec(path, ecmd->argv) < 0) { // try to execute the command in the current directory
+        if(exec(root_path, ecmd->argv) < 0) { // if that fails, try to execute the command in the root directory
+            fprintf(2, "exec %s failed. No program found in root or current directory\n", ecmd->argv[0]);
+            exit(1);
+        }
+    }
     break;
 
   case REDIR:
