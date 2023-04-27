@@ -5,6 +5,8 @@
 #include "kernel/stat.h"
 #include "user/ulib.c"
 
+void find(char * path, char * filename) {}
+
 int main(int argc, char *argv[])
 {
 	if(argc < 2) {
